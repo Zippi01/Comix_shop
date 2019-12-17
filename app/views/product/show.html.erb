@@ -1,0 +1,15 @@
+<div class="container alert alert-light">
+
+  <h1 class="mt-4"><%= @product.title %></h1>
+  <div>
+    <%= Category.find(@product.category_id).title %>
+  </div>
+  <hr>
+
+  <p>
+    <%= @product.description %>
+  </p>
+
+  <%= link_to 'Back', product_index_path, class:"btn btn-primary"%>
+  <%= link_to 'Buy', product_index_path, class:"btn btn-outline-primary"%>
+</div>

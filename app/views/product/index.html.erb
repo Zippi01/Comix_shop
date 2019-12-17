@@ -1,0 +1,25 @@
+<br>
+<div class="d-flex flex-nowrap bd-highlight">
+  <% @products.each do |product| %>
+    <div class="container">
+
+      <div><%= product.title %></div>
+
+      <div>
+        <strong>Category:</strong>
+      </div>
+      <div>
+        <%= Category.find(product.category_id).title %>
+      </div>
+      <div>
+        <%= link_to 'Show', product, class:"btn btn-primary" %>
+        <%= link_to 'Buy', product, class:"btn btn-outline-primary" %>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</div>
+<br>
+<div class="row justify-content-center" >
+  <%= will_paginate @products, renderer: WillPaginate::ActionView::BootstrapLinkRenderer%>
+</div>
