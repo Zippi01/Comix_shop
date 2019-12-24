@@ -1,0 +1,12 @@
+<div class="container">
+
+  <h1 class="mt-4"><%= @category.title %></h1>
+  <hr>
+  <p>
+    <%= @category.description %>
+  </p>
+  <p>
+    <%= image_tag @category.image.url(:thumb), class: "img-show" if  @category.image? %>
+  </p>
+  <%= link_to 'Back', admin_categories_path, class:"btn btn-outline-primary"%>
+</div>
