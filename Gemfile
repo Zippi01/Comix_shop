@@ -14,7 +14,7 @@ gem 'sass-rails', '>= 6'
 
 gem 'carrierwave'
 gem "mini_magick"
-
+gem 'image_processing'
 gem 'sorcery'
 
 gem 'will_paginate', '~> 3.1.0'

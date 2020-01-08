@@ -18,7 +18,7 @@
 
   <div class = "field">
     <strong><%= form.label :"Description:" %></strong>
-    <%= form.text_area :description, class: "form-control"%>
+    <%= form.rich_text_area :description, class: "form-control"%>
   </div>
   <p></p>
 
@@ -36,7 +36,7 @@
     <%= form.file_field :image, class: "form-control"%>
   </div>
   <p></p>
-  
+
   <div class="actions">
     <%= form.submit :Done, class: "btn btn-primary btn-sm"  %>
   </div>

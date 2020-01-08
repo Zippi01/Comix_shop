@@ -1,44 +1,54 @@
+<%= render 'shared/admin' %>
 <p id="notice"><%= notice %></p>
-<div class="d-flex flex-nowrap bd-highlight">
 <div class="container">
+  <%= link_to 'Category', admin_categories_path, class:"btn btn-outline-primary"%>
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-lg-4 col-xl-4 col-md-4 col">
+        <div class="container alert alert-light">
+          <div class="list group-item">
+            <div>
+              <strong>Description:</strong>
+            </div>
 
-  <div><%= link_to 'New product', new_admin_product_path, class: "btn btn-primary"%></div>
+            <div><%= product.description %> </div>
+            <hr>
 
-<% @products.each do |product| %>
-  <div class="container alert alert-light">
-    <div class="list group-item">
-      <div>
-        <strong>Description:</strong>
-      </div>
-      <div><%= product.description %> </div>
-      <hr>
-      <div>
-        <strong>Title:</strong>
-      </div>
-      <div><%= product.title %></div>
-      <hr>
-      <div>
-        <strong>Price:</strong>
-      </div>
-      <div><%= product.price %></div>
-      <hr>
-      <div>
-        <strong>Image:</strong>
-      </div>
-      <div>
-        <%= image_tag product.image.url(:large), class: "img-show" if  product.image? %>
-      </div>
-      <hr>
-      <div>
-        <%= Category.find(product.category_id).title %>
-        <hr>
-        <div><%= link_to 'Show', admin_product_path(product), class:"btn btn-primary" %>
-            <%= link_to 'Edit', edit_admin_product_path(product), class:"btn btn-outline-primary"%>
-            <%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary"%>
+            <div>
+              <strong>Title:</strong>
+            </div>
+
+            <div><%= product.title %></div>
+            <hr>
+
+            <div>
+              <strong>Price:</strong>
+            </div>
+
+            <div><%= product.price %></div>
+            <hr>
+
+            <div>
+              <strong>Image:</strong>
+            </div>
+
+            <div>
+              <%= image_tag product.image.url(:large), class: "img-show" if  product.image? %>
+            </div>
+            <hr>
+
+            <div>
+              <%= Category.find(product.category_id).title %>
+              <hr>
+              <div><%= link_to 'Show', admin_product_path(product), class:"btn btn-primary" %>
+                  <%= link_to 'Edit', edit_admin_product_path(product), class:"btn btn-outline-primary"%>
+                  <%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary"%>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
-</div>
 <br>
+</div>
