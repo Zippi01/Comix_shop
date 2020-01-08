@@ -1,0 +1,12 @@
+uk:
+  activerecord:
+    attributes:
+      product:
+        title: "Назва"
+        description: "Опис"
+        price: "Ціна"
+        image: "Картинка"
+      category:
+        title: "Назва"
+        description: "Опис"
+        image: "Картинка"

@@ -1,0 +1,44 @@
+uk:
+  product:
+    edit:
+      title: "Редагувати"
+    new:
+      title: "Створити продукт"
+    index:
+      show: "Перегляд"
+      edit: "Редагувати"
+      destroy: "Видалити"
+      buy: "Купити"
+      description: "Опис"
+      price: "Ціна"
+      image: "Картинка"
+      title: "Назва"
+      category: "Категорія"
+      product: "Продукт"
+    show:
+      back: "Назад"
+
+  category:
+    new:
+      title: "Створити категорію"
+    edit:
+      title: "Редагувати"
+
+  shared:
+    header:
+      logout: "Вийти"
+      admin: "Адмін"
+      login: "Увійти"
+      signup: "Реєстрація"
+    admin:
+      logout: "Вийти"
+      product: "Створти продукт"
+      category: "Створити категорію"
+
+  sesions:
+    new:
+      login: "Увійти"
+
+  users:
+    new:
+      signup: "Реєстрація"

@@ -1,4 +1,4 @@
-<h1>Registration</h1>
+<h1><%= t('users.new.signup') %></h1>
 
 <%= form_for @user do |f| %>
   <div class="form-group">
@@ -9,5 +9,5 @@
     <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control', required: true %>
   </div>
-  <%= f.submit 'Register', class: 'btn btn-primary btn-lg' %>
+  <%= f.submit "#{t('users.new.signup')}", class: 'btn btn-primary btn-lg' %>
 <% end %>

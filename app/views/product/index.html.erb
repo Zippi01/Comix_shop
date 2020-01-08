@@ -4,18 +4,20 @@
     <div class="col-lg-3 col-xl-3 col-md-3 col">
       <div><%= product.title %></div>
       <div>
-        <strong>Category:</strong>
+        <strong><%= t('product.index.category') %></strong>
       </div>
       <div>
         <%= Category.find(product.category_id).title %>
       </div>
       <div>
-        <%= image_tag product.image.url(:thumb), class: "img-show" if  product.image? %>
+        <% if product.images? %>
+          <%= image_tag product.images.first.url(:thumb) %>
+        <% end %>
       </div>
       <hr>
       <div>
-        <%= link_to 'Show', product, class:"btn btn-primary" %>
-        <%= link_to 'Buy', product, class:"btn btn-outline-primary" %>
+        <%= link_to "#{t('product.index.show')}", product, class:"btn btn-primary" %>
+        <%= link_to "#{t('product.index.buy')}", product, class:"btn btn-outline-primary" %>
       </div>
     <br>
     </div>

@@ -1,4 +1,4 @@
-<h1>Log In</h1>
+<h1><%= t('sesions.new.login') %></h1>
 <%= form_tag sessions_path, method: :post do %>
   <div class="form-group">
     <%= label_tag :email %>
@@ -10,5 +10,5 @@
     <%= password_field_tag :password, nil, class: 'form-control', required: true %>
   </div>
 
-  <%= submit_tag 'Log In', class: 'btn btn-primary btn-lg' %>
+  <%= submit_tag "#{t('sesions.new.login')}", class: 'btn btn-primary btn-lg' %>
 <% end %>

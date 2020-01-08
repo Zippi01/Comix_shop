@@ -11,13 +11,13 @@
   <% end %>
 
   <div class = "field">
-    <strong><%= form.label :"Title:"%></strong>
+    <strong><%= form.label :title %></strong>
     <%= form.text_field :title, class: "form-control"%>
   </div>
     <p></p>
 
   <div class = "field">
-    <strong><%= form.label :"Description:" %></strong>
+    <strong><%= form.label :description %></strong>
     <%= form.rich_text_area :description, class: "form-control"%>
   </div>
   <p></p>
@@ -26,13 +26,13 @@
   <p></p>
 
   <div class = "field">
-    <strong><%= form.label :"Price:"%></strong>
+    <strong><%= form.label :price %></strong>
     <%= form.text_field :price, class: "form-control"%>
   </div>
   <p></p>
 
   <div class = "field">
-    <strong><%= form.label :"Image:"%></strong>
+    <strong><%= form.label :image %></strong>
     <%= form.file_field :images,  multiple: true, class: "form-control"%>
   </div>
   <p></p>

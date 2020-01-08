@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    atributes:
+      product:
+        title: "Title"
+        description: "Description"
+        price: "Price"
+        image: "Image"
+      category:
+        title: "Title"
+        description: "Description"
+        image: "Image"

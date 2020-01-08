@@ -1,18 +1,17 @@
-<%= render 'shared/admin' %>
 <p id="notice"><%= notice %></p>
 <div class="d-flex flex-nowrap bd-highlight">
   <div class="container">
-    <%= link_to 'Product', admin_products_path, class:"btn btn-outline-primary"%>
+    <%= link_to "#{t('product.index.product')}", admin_products_path, class:"btn btn-outline-primary"%>
     <% @categories.each do |category| %>
       <div class="container alert alert-light">
         <div class="list group-item">
           <div>
-            <strong>Description:</strong>
+            <strong><%= t('product.index.description') %></strong>
           </div>
           <div><%= category.description %> </div>
           <hr>
           <div>
-            <strong>Title:</strong>
+            <strong><%= t('product.index.title') %></strong>
           </div>
           <div><%= category.title %></div>
           <hr>
@@ -21,8 +20,8 @@
           </div>
           <hr>
           <div>
-            <%= link_to 'Edit', edit_admin_category_path(category), class:"btn btn-primary"%>
-            <%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary"%>
+            <%= link_to "#{t('product.index.edit')}", edit_admin_category_path(category), class:"btn btn-primary"%>
+            <%= link_to "#{t('product.index.destroy')}", admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary"%>
           </div>
         </div>
       </div>
