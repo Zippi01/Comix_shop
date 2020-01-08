@@ -32,9 +32,9 @@
               <strong>Image:</strong>
             </div>
 
-            <div>
-              <%= image_tag product.image.url(:large), class: "img-show" if  product.image? %>
-            </div>
+            <% if product.images? %>
+              <%= image_tag product.images.first.url(:thumb) %>
+            <% end %>
             <hr>
 
             <div>

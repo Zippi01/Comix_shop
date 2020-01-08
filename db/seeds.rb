@@ -9,15 +9,15 @@
 # Category.create(title: "Magazine", description:"Magazine Collections")
 # Category.create(title: "Manga", description:"Manga Collections")
 #
-# 10.times do |i|
-#   Product.create(title: "Book #{i}", description: "Book", price: 1+i, category_id: 1)
-# end
-#
-# 10.times do |i|
-#   Product.create(title: "Magazine #{i}", description: "Magazine", price: 2+i, category_id: 2)
-# end
-#
-# 10.times do |i|
-#   Product.create(title: "Manga #{i}", description: "Manga", price: 3+i, category_id: 3)
-# end
+10.times do |i|
+  Product.create(title: "Book #{i}", description: "Book", price: 1+i, category_id: 1)
+end
+
+10.times do |i|
+  Product.create(title: "Magazine #{i}", description: "Magazine", price: 2+i, category_id: 2)
+end
+
+10.times do |i|
+  Product.create(title: "Manga #{i}", description: "Manga", price: 3+i, category_id: 3)
+end
 User.create(email: "email@gmail.com", password: "email", admin: true)
