@@ -1,6 +1,15 @@
 class Product < ApplicationRecord
   mount_uploaders :images, ImageUploader
-  belongs_to :category
+
+  has_many :category_product
+  has_many :categories, through: :category_product
+
   has_rich_text :description
+
   validates :title, uniqueness: true
+
+  scope :min_price, -> { order("price ASC") }
+  scope :max_price, -> { order("price DESC") }
+  scope :sort_new, -> { order("created_at DESC") }
+  scope :sort_old, -> { order("created_at ASC") }
 end

@@ -14,6 +14,7 @@ en:
       image: "Image"
       title: "Title"
       category: "Category"
+      product: "Product"
     show:
       back: "Back"
 

@@ -6,6 +6,14 @@
       <div>
         <strong><%= t('product.index.category') %></strong>
       </div>
+
+      <div>
+        <strong><%= t('product.index.price') %></strong>
+      </div>
+
+      <div><%= product.price %></div>
+      <hr>
+
       <div>
         <%= Category.find(product.category_id).title %>
       </div>
@@ -23,6 +31,10 @@
     </div>
   <% end %>
 </div>
+<%= link_to "Min", min_price_product_index_path, class:"btn btn-outline-primary" %>
+<%= link_to "Max", max_price_product_index_path, class:"btn btn-outline-primary" %>
+<%= link_to "New", sort_new_product_index_path, class:"btn btn-outline-primary" %>
+<%= link_to "Old", sort_old_product_index_path, class:"btn btn-outline-primary" %>
 <br>
 <div class="row justify-content-center" >
   <%= will_paginate @products, renderer: WillPaginate::ActionView::BootstrapLinkRenderer%>

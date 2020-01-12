@@ -10,7 +10,14 @@ Rails.application.routes.draw do
     get '/log_in', to: 'sessions#new', as: :log_in
     delete '/log_out', to: 'sessions#destroy', as: :log_out
 
-    resources :product
+    resources :product do
+      collection do
+        get :min_price
+        get :max_price
+        get :sort_new
+        get :sort_old
+      end
+    end
 
     scope :admin do
       resources :category, controller: 'backoffice/category', as: 'admin_categories'
