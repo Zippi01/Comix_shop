@@ -42,3 +42,4 @@ en:
   users:
     new:
       signup: "Sign up"
+      password: "Password"

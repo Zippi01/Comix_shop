@@ -1,13 +1,29 @@
-<h1><%= t('users.new.signup') %></h1>
+<br><br><br>
+<div class = " container w-50 p-3 ">
+  <div class = "card">
+    <h2 class = "card-title text-center mb-4 mt-1"><%= t('users.new.signup') %></h2>
+    <%= form_for @user do |f| %>
+      <div class = "form-group">
+        <div class = "input-group">
+          <div class = "input-group-prepend">
+            <span class = "input-group-text"> <i class = "fa fa-at"></i> </span>
+          </div>
+          <%= f.email_field :email, class: 'form-control', required: true, placeholder: "Email"%>
+        </div>
+      </div>
 
-<%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control', required: true %>
+      <div class = "form-group">
+        <div class = "input-group">
+          <div class = "input-group-prepend">
+            <span class = "input-group-text"> <i class = "fa fa-lock"></i> </span>
+          </div>
+          <%= f.password_field :password, class: 'form-control', required: true, placeholder: "#{t('users.new.password')}" %>
+        </div>
+        <br>
+        <div class = "form-group">
+          <%= f.submit "#{t('users.new.signup')}", class: 'btn btn-dark btn-block', style: "background-color: #000;"%>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control', required: true %>
-  </div>
-  <%= f.submit "#{t('users.new.signup')}", class: 'btn btn-primary btn-lg' %>
-<% end %>
+</div>

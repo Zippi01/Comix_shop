@@ -42,3 +42,4 @@ uk:
   users:
     new:
       signup: "Реєстрація"
+      password: "Пароль"
