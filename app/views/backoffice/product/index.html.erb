@@ -1,54 +1,33 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <%= link_to "#{t('product.index.category')}", admin_categories_path, class:"btn btn-outline-primary"%>
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-lg-4 col-xl-4 col-md-4 col">
-        <div class="container alert alert-light">
-          <div class="list group-item">
-            <div>
-              <strong><%= t('product.index.description') %></strong>
-            </div>
+<div></div>
 
-            <div><%= product.description %> </div>
-            <hr>
+<div class="containerr container">
 
-            <div>
-              <strong><%= t('product.index.title') %></strong>
-            </div>
-
-            <div><%= product.title %></div>
-            <hr>
-
-            <div>
-              <strong><%= t('product.index.price') %></strong>
-            </div>
-
-            <div><%= product.price %></div>
-            <hr>
-
-            <div>
-              <strong><%= t('product.index.image') %></strong>
-            </div>
-
-            <% if product.images? %>
-              <%= image_tag product.images.first.url(:thumb) %>
+  <div class="second_child">
+    <table class="table">
+      <tr>
+        <td><strong>Image:</strong></td>
+        <td><strong>Title:</strong></td>
+        <td><strong>Category:</strong></td>
+        <td><strong>Price:</strong></td>
+      </tr>
+      <% @products.each do |product| %>
+        <tr>
+          <% if product.images? %>
+              <td><%= image_tag product.images.first.url(:thumb) %></td>
             <% end %>
-            <hr>
-
-            <div>
-              <%= Category.find(product.category_id).title %>
-              <hr>
-              <div>
-                <%= link_to "#{t('product.index.show')}", admin_product_path(product), class:"btn btn-primary" %>
-                <%= link_to "#{t('product.index.edit')}", edit_admin_product_path(product), class:"btn btn-outline-primary"%>
-                <%= link_to "#{t('product.index.destroy')}", admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary"%>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+          <td><%= product.title %></td>
+          <td><%= Category.find(product.category_id).title %></td>
+          <td><%= product.price %></td>
+          <td class="d-flex flex-row-reverse"">
+            <span class="border border-dark rounded">
+              <%= link_to 'Show', admin_product_path(product), class:"btn btn-light" %>
+              <%= link_to 'Edit', edit_admin_product_path(product), class:"btn btn-light"%>
+              <%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light"%>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
-<br>
 </div>
