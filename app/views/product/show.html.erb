@@ -45,6 +45,11 @@
 
       </div>
 </div>
+
+
+
+
+
     <!-- <table class="p-2 flex-fill bd-highlight">
       <tr>
         <td><strong>Image:</strong></td>
@@ -62,8 +67,37 @@
 
     </table> -->
 
+    <%# <%= link_to "#{t('product.show.back')}", product_index_path, class:"btn btn-primary"%>
+  </div>
+</div>
 
 
-    <%= link_to "#{t('product.show.back')}", product_index_path, class:"btn btn-primary"%>
+<% @product.comments.each do |comment| %>
+  <div class = "alert alert-light">
+  <div class="container alert alert-lite contr">
+    <i class="fas fa-user"></i> <%=User.find_by_id(comment.user_id).email%>: <%= comment.body %>
+    <br>
+    <i class = "far fa-edit"></i> <%= comment.created_at %>
+  </div>
+</div>
+<% end %>
+
+<div class="container new_comment_form">
+  <div class="coments" id="form_new">
+    <div id="form_comment">
+      <% if current_user %>
+        <h4>Залишити відгук:</h4>
+        <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
+          <p>
+            <%= form.text_area :body, class:'form-control' %>
+          </p>
+          <p>
+            <%= form.submit "Опублікувати", class:'btn btn-success btn-sm ' %>
+          </p>
+        <% end %>
+      <% else %>
+            <i>Зареєструйтесь, щоб залишити відгук.</i>
+      <% end %>
+    </div>
   </div>
 </div>

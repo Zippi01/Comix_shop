@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     delete 'cart_items/:id' => "cart_items#destroy"
 
     resources :product do
+      resources :comments
       collection do
         get :min_price
         get :max_price

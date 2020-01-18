@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_many :category_product
   has_many :categories, through: :category_product
   has_many :cart_items, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_rich_text :description
 
