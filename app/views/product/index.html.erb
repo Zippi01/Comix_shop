@@ -1,40 +1,41 @@
+
+<div class="d-flex flex-row-reverse">
+  <span class="border border-dark rounded">
+    <%= link_to "#{t('product.index.min')}", min_price_product_index_path, class:"btn btn-light btn-sm" %>
+    <%= link_to "#{t('product.index.max')}", max_price_product_index_path, class:"btn btn-light btn-sm" %>
+    <%= link_to "#{t('product.index.new')}", sort_new_product_index_path, class:"btn btn-light btn-sm" %>
+    <%= link_to "#{t('product.index.old')}", sort_old_product_index_path, class:"btn btn-light btn-sm" %>
+  </span>
+</div>
 <br>
-  <div class="row">
-  <% @products.each do |product| %>
-    <div class="col-lg-3 col-xl-3 col-md-3 col">
-      <div><%= product.title %></div>
-      <div>
-        <strong><%= t('product.index.category') %></strong>
-      </div>
+<div class="row">
+<% @products.each do |product| %>
+  <div class="col-lg-3 col-xl-3 col-md-3 col text-center">
 
-      <div>
-        <strong><%= t('product.index.price') %></strong>
-      </div>
+    <div>
+      <% if product.images? %>
+        <%= image_tag product.images.first.url(:thumb) %>
+      <% end %>
+    </div>
 
-      <div><%= product.price %></div>
-      <hr>
 
-      <div>
-        <%= Category.find(product.category_id).title %>
-      </div>
-      <div>
-        <% if product.images? %>
-          <%= image_tag product.images.first.url(:thumb) %>
-        <% end %>
-      </div>
-      <hr>
-      <div>
-        <%= link_to "#{t('product.index.show')}", product, class:"btn btn-primary" %>
-        <%= link_to "#{t('product.index.buy')}", product, class:"btn btn-outline-primary" %>
-      </div>
+    <!-- <div>
+      <%# <%= Category.find(product.category_id).title %> %>
+    </div> -->
+
+    <div><%= product.title %></div>
+<br>
+
+<div ><%= product.price %> <i class="fas fa-hryvnia"></i></div>
+    <div>
+      <%= link_to "#{t('product.index.show')}", product, class:"btn btn-primary" %>
+      <%= button_to "#{t('product.index.buy')}", cart_items_path(:product_id => product.id), class:"btn btn-outline-primary" %>
+    </div>
     <br>
     </div>
   <% end %>
 </div>
-<%= link_to "Min", min_price_product_index_path, class:"btn btn-outline-primary" %>
-<%= link_to "Max", max_price_product_index_path, class:"btn btn-outline-primary" %>
-<%= link_to "New", sort_new_product_index_path, class:"btn btn-outline-primary" %>
-<%= link_to "Old", sort_old_product_index_path, class:"btn btn-outline-primary" %>
+
 <br>
 <div class="row justify-content-center" >
   <%= will_paginate @products, renderer: WillPaginate::ActionView::BootstrapLinkRenderer%>

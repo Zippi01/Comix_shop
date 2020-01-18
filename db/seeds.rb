@@ -4,10 +4,10 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# Category.create(title: "Book", description:"Book Collections")
-# Category.create(title: "Magazine", description:"Magazine Collections")
-# Category.create(title: "Manga", description:"Manga Collections")
+  Character.create(name: 'Luke', movie: movies.first)
+Category.create(title: "Book", description:"Book Collections")
+Category.create(title: "Magazine", description:"Magazine Collections")
+Category.create(title: "Manga", description:"Manga Collections")
 #
 10.times do |i|
   Product.create(title: "Book #{i}", description: "Book", price: 1+i, category_id: 1)

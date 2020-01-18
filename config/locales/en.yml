@@ -15,6 +15,10 @@ en:
       title: "Title"
       category: "Category"
       product: "Product"
+      max: "First expensive"
+      min: "First cheap"
+      new: "First new"
+      old: "First old"
     show:
       back: "Back"
 
