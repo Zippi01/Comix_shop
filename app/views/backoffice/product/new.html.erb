@@ -1,6 +1,6 @@
 <div class = "container ">
   <h1 align = "center"><%= t('product.new.title') %></h1>
-  <div class = "list-group-item px-20" style = "border-radius: 10px" >
+  <div class = "list-group-item px-20 radius_edit">
     <%= render 'form', pruduct: @pruduct %>
     <div class = "pjax-container">
       <%= link_to "#{t('product.show.back')}", admin_products_path, class:"btn btn-outline-success btn-block btn-sm"%>

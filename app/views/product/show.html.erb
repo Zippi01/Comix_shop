@@ -15,7 +15,7 @@
   <div class="p-2 flex-fill bd-highlight">
     <h2 class="mt-4 " align = "center"><%= @product.title %></h2>
     <div class="d-flex float-right " align = "right">
-      <span class="border border-dark rounded" style = "padding: 30px 40px;">
+      <span class="border border-dark rounded padding">
         <div ><%= @product.price %> <i class="fas fa-hryvnia"></i></div>
         <br>
         <%= button_to "#{t('product.index.buy')}", cart_items_path(:product_id => @product.id),
@@ -31,8 +31,8 @@
   </div>
 </div>
 
-<hr style="background-color: #000;" >
-<hr style="background-color: #000; height: 1px;" >
+<hr class = "color1">
+<hr class = "color">
 
 <h4 class = "container"><%= t('product.show.comments')%>:</h4>
 <% @product.comments.each do |comment| %>
@@ -40,7 +40,14 @@
     <p>
       <i class="fas fa-user"></i> <%=User.find_by_id(comment.user_id).email%>
       <i class=" alert-light"> <%= comment.created_at %></i>
-      <i class="fas fa-star"> </i> <%= comment.rating %>
+      <i>
+       <% comment.rating.times do |i| %>
+         <i class="fas fa-star"></i>
+       <% end %>
+       <% (5-comment.rating).times do |i| %>
+         <i class="far fa-star"></i>
+       <% end %>
+     </i>
     </p>
     <p><i class = "far fa-edit"></i> <%= comment.body %></p>
     <p><i class="fas fa-plus"></i> <%= comment.plus %></p>

@@ -6,22 +6,19 @@
       <td>
         <%= link_to " ", cart_item_reduce_path(:id => cart_item),
                            method: :post,
-                           class:"fas fa-minus nav-link",
-                           style:"color: #000;" %>
+                           class:"fas fa-minus nav-link color1"%>
         <span class="border border-dark rounded p-2">
           <%= cart_item.quantity %>
         </span>
         <%= link_to " ", cart_item_add_path(:id => cart_item),
                          method: :post,
-                         class: "fas fa-plus nav-link",
-                         style:"color: #000;" %>
+                         class: "fas fa-plus nav-link color1"%>
       </td>
       <td><%= cart_item.total_price %> <i class="fas fa-hryvnia"></i></td>
       <td>
         <%= link_to " ", cart_item_path(cart_item),
                            method: :delete,
-                           class: "fas fa-times nav-link",
-                           style:"color: #000;",
+                           class: "fas fa-times nav-link color1",
                            data: {confirm: "Are you sure?"} %>
      </td>
    </tr>

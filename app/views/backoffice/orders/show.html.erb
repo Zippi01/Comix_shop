@@ -1,14 +1,14 @@
 <div class="container">
   <h4><%= @order.email %></h4>
 
-  <hr style="background-color: #000;" >
+  <hr class = "color" >
 
   <h5 class = "d-flex flex-row-reverse"><%= @order.status %></h5>
 
   <p class="mt-4"><%= t('product.show.com')%>: <%= @order.name %></p>
 
   <p><%= @order.comment %></p>
-  
+
   <div class = "container">
     <% @order.cart_items.each do |item| %>
       <li><%= item.quantity %> x <%= item.product.title %></li>
