@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   get 'orders/show'
   get 'orders/new'
   get 'carts/show'
-  get 'order/show'
-  get 'order/index'
-  get 'order/new'
+
   scope'(:locale)', locale:/#{I18n.available_locales.join("|")}/ do
 
     root 'product#index', as: 'home'
@@ -42,6 +40,7 @@ Rails.application.routes.draw do
     scope :admin do
       resources :category, controller: 'backoffice/category', as: 'admin_categories'
       resources :product, controller: 'backoffice/product', as: 'admin_products'
+      resources :orders, controller: 'backoffice/orders', as: 'admin_orders'
     end
   end
 end

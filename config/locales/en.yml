@@ -21,10 +21,15 @@ en:
       old: "First old"
     show:
       back: "Back"
+      comment: "Leave a comment"
+      comments: "Coments"
+      publish: "Publish"
+      signup: "Sign up to leave a review"
 
   category:
     new:
       title: "New categoty"
+      done: "Done"
     edit:
       title: "Edit category"
 
@@ -38,6 +43,7 @@ en:
       logout: "Log out"
       product: "New product"
       category: "New category"
+      order: "Order"
 
   sesions:
     new:
@@ -47,3 +53,16 @@ en:
     new:
       signup: "Sign up"
       password: "Password"
+
+  order:
+    index:
+      name: "Name"
+      cart: "Cart"
+      order: "Order"
+      address: "Address"
+
+  cart:
+    show:
+      cart: "Cart"
+      sum: "Total cost"
+      order: "To order"

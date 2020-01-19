@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h2><%= t("order.index.order") %></h2>
+<div class="p-3" >
+  <% @orders.each do |order| %>
+    <hr>
+      <p><strong><%= t("order.index.name") %>:</strong> <%= order.name %></p>
+      <p><strong>Email:</strong> <%= order.email %></p>
+      <p><strong><%= t("order.index.cart") %>:</strong> </p>
+      <ul>
+        <% order.cart_items.each do |item| %>
+          <li><%= item.quantity %> x <%= item.product.title %></li>
+        <% end %>
+      </ul>
+    <hr>
+  <% end %>
+</div>

@@ -22,7 +22,9 @@
   </div>
   <p></p>
 
-  <%= form.select :category_id, Category.all.pluck(:title,:id),{class: "form-control"}%>
+    <%= form.select :category_id, Category.all.pluck(:title,:id),{class: "form-control "}%>
+
+
   <p></p>
 
   <div class = "field">
@@ -33,12 +35,12 @@
 
   <div class = "field">
     <strong><%= form.label :image %></strong>
-    <%= form.file_field :images,  multiple: true, class: "form-control"%>
+    <p><%= form.file_field :images,  multiple: true%></p>
   </div>
   <p></p>
 
   <div class="actions">
-    <%= form.submit :Done, class: "btn btn-primary btn-sm"  %>
+    <%= form.submit :"#{t('category.new.done')}", class: "btn btn-success btn-sm btn-block"  %>
   </div>
     <p></p>
 <% end %>

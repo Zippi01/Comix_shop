@@ -20,8 +20,12 @@
           </div>
           <hr>
           <div>
-            <%= link_to "#{t('product.index.edit')}", edit_admin_category_path(category), class:"btn btn-primary"%>
-            <%= link_to "#{t('product.index.destroy')}", admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary"%>
+            <%= link_to "#{t('product.index.edit')}", edit_admin_category_path(category),
+                                                      class:"btn btn-primary"%>
+            <%= link_to "#{t('product.index.destroy')}", admin_category_path(category),
+                                                         method: :delete,
+                                                         data: { confirm: 'Are you sure?' },
+                                                         class:"btn btn-outline-primary"%>
           </div>
         </div>
       </div>

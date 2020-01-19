@@ -24,12 +24,12 @@
 
   <div class = "field">
     <strong><%= form.label :image%></strong>
-    <%= form.file_field :image, class: "form-control"%>
+    <p><%= form.file_field :image%></p>
   </div>
   <p></p>
 
   <div class="actions">
-    <%= form.submit :Done, class: "btn btn-primary btn-sm"  %>
+    <%= form.submit :"#{t('category.new.done')}", class: "btn btn-success btn-sm btn-block"  %>
   </div>
     <p></p>
 <% end %>

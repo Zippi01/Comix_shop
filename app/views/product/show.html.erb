@@ -1,102 +1,65 @@
 <div class="d-flex bd-highlight">
-  <div class=" alert alert-light">
 
-    <div class="d-flex bd-highlight">
+  <div class="p-3 flex-fill bd-highlight">
+    <% @product.images.each do |images| %>
+    <%= image_tag images.url(:small), class:"p-1 bd-highlight" %>
+    <% end %>
+  </div>
 
-      <div class="p-6 flex-fill bd-highlight">
-        <% @product.images.each do |images| %>
-        <%= image_tag images.url(:small), class:"p-1 bd-highlight" %>
-        <% end %>
-      </div>
+  <div class="p-2 flex-fill bd-highlight">
+    <% if @product.images? %>
+      <%= image_tag @product.images.first.url(:large)%>
+    <% end %>
+  </div>
 
-      <div class="p-2 flex-fill bd-highlight">
-        <% if @product.images? %>
-          <%= image_tag @product.images.first.url(:large)%>
-        <% end %>
-      </div>
-
-
-
-<div class="p-2 flex-fill bd-highlight">
+  <div class="p-2 flex-fill bd-highlight">
     <h2 class="mt-4 " align = "center"><%= @product.title %></h2>
-
-
-
-        <div class="d-flex " align = "right">
-          <span class="border border-dark rounded" style = "padding: 30px 40px;">
-          <div ><%= @product.price %> <i class="fas fa-hryvnia"></i></div>
-          <br>
-
-          <%= button_to "#{t('product.index.buy')}", cart_items_path(:product_id => @product.id), class:"btn btn-success btn-block btn-sm" %>
-        </span>
-      </div>
-
-      <strong>Category:</strong>
-      <i class = "text-muted"><%= Category.find(@product.category_id).title %></i>
-
-
-
-
-        <hr>
-        <strong>description:</strong>
-        <p>
-          <%= @product.description %>
-        </p>
-
-      </div>
-</div>
-
-
-
-
-
-    <!-- <table class="p-2 flex-fill bd-highlight">
-      <tr>
-        <td><strong>Image:</strong></td>
-        <td><strong>Title:</strong></td>
-        <td><strong>Category:</strong></td>
-        <td><strong>Price:</strong></td>
-      </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-    </table> -->
-
-    <%# <%= link_to "#{t('product.show.back')}", product_index_path, class:"btn btn-primary"%>
+    <div class="d-flex float-right " align = "right">
+      <span class="border border-dark rounded" style = "padding: 30px 40px;">
+        <div ><%= @product.price %> <i class="fas fa-hryvnia"></i></div>
+        <br>
+        <%= button_to "#{t('product.index.buy')}", cart_items_path(:product_id => @product.id),
+                                                   class:"btn btn-success btn-block btn-sm" %>
+      </span>
+    </div>
+    <br><br><br><br><br>
+    <strong><%= t('product.index.category')%>:</strong>
+    <i class = "text-muted"><%= Category.find(@product.category_id).title %></i>
+    <hr>
+    <strong><%= t('product.index.description')%>:</strong>
+    <p>
+      <%= @product.description %>
+    </p>
   </div>
 </div>
 
+<hr style="background-color: #000;" >
+<hr style="background-color: #000; height: 1px;" >
 
+<h4 class = "container"><%= t('product.show.comments')%>:</h4>
 <% @product.comments.each do |comment| %>
-  <div class = "alert alert-light">
-  <div class="container alert alert-lite contr">
+  <div class="container alert alert-lite contr border border-dark  p-3" >
     <i class="fas fa-user"></i> <%=User.find_by_id(comment.user_id).email%>: <%= comment.body %>
     <br>
     <i class = "far fa-edit"></i> <%= comment.created_at %>
   </div>
-</div>
 <% end %>
 
 <div class="container new_comment_form">
   <div class="coments" id="form_new">
     <div id="form_comment">
       <% if current_user %>
-        <h4>Залишити відгук:</h4>
+        <h4><%= t('product.show.comment')%></h4>
         <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
           <p>
             <%= form.text_area :body, class:'form-control' %>
           </p>
           <p>
-            <%= form.submit "Опублікувати", class:'btn btn-success btn-sm ' %>
+            <%= form.submit "#{t('product.show.publish')}", class:'btn btn-success btn-sm ' %>
           </p>
         <% end %>
       <% else %>
-            <i>Зареєструйтесь, щоб залишити відгук.</i>
+        <i><%= t('product.show.signup')%>.</i>
       <% end %>
     </div>
   </div>

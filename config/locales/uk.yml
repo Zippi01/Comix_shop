@@ -21,10 +21,15 @@ uk:
       old: "Спочатку старі"
     show:
       back: "Назад"
+      comment: "Залишити відгук"
+      comments: "Коментарі"
+      publish: "Опублікувати"
+      signup: "Зареєструйтесь, щоб залишити відгук"
 
   category:
     new:
       title: "Створити категорію"
+      done: "Створити"
     edit:
       title: "Редагувати"
 
@@ -38,6 +43,7 @@ uk:
       logout: "Вийти"
       product: "Створти продукт"
       category: "Створити категорію"
+      order: "Замовлення"
 
   sesions:
     new:
@@ -47,3 +53,16 @@ uk:
     new:
       signup: "Реєстрація"
       password: "Пароль"
+
+  order:
+    index:
+      name: "Ім'я"
+      cart: "Корзина"
+      order: "Замовлення"
+      address: "Адреса"
+
+  cart:
+    show:
+      cart: "Корзина"
+      sum: "Загальна вартість"
+      order: "Оформити замовлення"

@@ -1,4 +1,4 @@
-<h3>Корзина</h3>
+<h3><%= t("cart.show.cart") %></h3>
 <table class="table">
   <% @cart.cart_items.each do |cart_item| %>
    <tr>
@@ -28,8 +28,8 @@
   <% end %>
 </table>
 <hr>
-<h5 align = "right">Вся сумма <%= @cart.sub_total %> <i class="fas fa-hryvnia"></i></h5>
+<h5 align = "right"><%= t("cart.show.sum") %>: <%= @cart.sub_total %> <i class="fas fa-hryvnia"></i></h5>
 
 <div class="" align = "right">
-  <%= link_to "Оформити замовлення", new_order_path, class:"btn btn-success" %>
+  <%= link_to "#{ t("cart.show.order")}", new_order_path, class:"btn btn-success" %>
 </div>
