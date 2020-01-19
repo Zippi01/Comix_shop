@@ -26,6 +26,8 @@ en:
       publish: "Publish"
       signup: "Sign up to leave a review"
       com: "Comment"
+      plus: "Plus"
+      minus: "Minus"
 
   category:
     new:
@@ -68,3 +70,23 @@ en:
       cart: "Cart"
       sum: "Total cost"
       order: "To order"
+
+  footer:
+    delivery:
+      delivery: "Delivery and payment"
+      about: "Contact Information"
+
+  flash:
+    controller:
+      message: "Your order was successfully created"
+      message1: "Welcome back!"
+      message2: "E-mail and/or password is incorrect."
+      message3: "See you!"
+      message4: "Welcome!"
+      message5: "Category has been created."
+      message6: "Category has been edited."
+      message7: "Category was successfully destroyed."
+      message8: "Order has been edited"
+      message9: "Product has been added."
+      message10: "Product has been edited."
+      message11: "Product was successfully destroyed."

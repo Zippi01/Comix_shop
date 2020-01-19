@@ -16,6 +16,6 @@ module OnlineStore
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.i18n.available_locales = [:en, :uk]
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :uk
   end
 end

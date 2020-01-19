@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(params[:user][:email], params[:user][:password])
-      flash[:success] = 'Welcome!'
+      flash[:success] = "#{t("flash.controller.message4")}"
       redirect_to "/product"
     else
       render 'new'

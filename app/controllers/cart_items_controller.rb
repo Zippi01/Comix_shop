@@ -12,7 +12,6 @@ class CartItemsController < ApplicationController
       @cart_item.cart = current_cart
       @cart_item.product = chosen_product
     end
-
     @cart_item.save
     redirect_to cart_path(current_cart)
   end

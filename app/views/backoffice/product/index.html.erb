@@ -14,8 +14,8 @@
       <% @products.each do |product| %>
         <tr>
           <% if product.images? %>
-              <td><%= image_tag product.images.first.url(:thumb) %></td>
-            <% end %>
+            <td><%= image_tag product.images.first.url(:thumb) %></td>
+          <% end %>
           <td><%= product.title %></td>
           <td><%= Category.find(product.category_id).title %></td>
           <td><%= product.price %></td>

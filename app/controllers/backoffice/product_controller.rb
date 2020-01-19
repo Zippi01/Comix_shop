@@ -15,7 +15,7 @@ class Backoffice::ProductController < BackOfficeController
    @product = Product.new(product_params)
    if @product.save
      redirect_to admin: @product
-     flash[:notice] = 'Product has been added'
+     flash[:notice] = "#{t("flash.controller.message9")}"
    else
      render :new
    end
@@ -26,7 +26,7 @@ class Backoffice::ProductController < BackOfficeController
  def update
    if @product.update_attributes(product_params)
      redirect_to admin: @product
-     flash[:notice] = 'Product has been edited'
+     flash[:notice] = "#{t("flash.controller.message10")}"
    else
      format.html { render :edit }
    end
@@ -34,7 +34,7 @@ class Backoffice::ProductController < BackOfficeController
 
  def destroy
    @product.destroy
-   redirect_to admin_products_path, notice: 'Product was successfully destroyed.'
+   redirect_to admin_products_path, notice: "#{t("flash.controller.message11")}"
  end
 
  private

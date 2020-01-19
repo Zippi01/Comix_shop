@@ -39,12 +39,11 @@
         <li class="nav-item">
             <%= link_to "#{t('shared.header.logout')}", log_out_path, method: :delete, class:'nav-link'  %>
         </li>
-        <!-- <span class="border-bottom"></span> -->
-            <% if current_user && current_user.admin == true %>
-              <li class="nav-item">
-                <%= link_to "#{t('shared.header.admin')}", admin_products_path, class:'nav-link'  %>
-              </li>
-            <% end %>
+          <% if current_user && current_user.admin == true %>
+            <li class="nav-item">
+              <%= link_to "#{t('shared.header.admin')}", admin_products_path, class:'nav-link'  %>
+            </li>
+          <% end %>
         <% else %>
           <li class="nav-item">
             <%= link_to "#{t('shared.header.login')}", log_in_path, class:'nav-link'  %>

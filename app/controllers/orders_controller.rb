@@ -19,9 +19,8 @@ class OrdersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       redirect_to home_path
-      flash[:success] = "Ваше замовлення успішно створене"
+      flash[:success] = "#{t("flash.controller.message")}"
     end
-
   end
 
 private

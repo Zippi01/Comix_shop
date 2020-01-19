@@ -15,7 +15,7 @@ class Backoffice::OrdersController < BackOfficeController
     if @order.update_attributes(order_params)
       OrderMailer.with(order: @order).edit_data.deliver!
       redirect_to admin: @order
-      flash[:notice] = 'Order has been edited'
+      flash[:notice] = "#{t("flash.controller.message8")}"
     else
       format.html { render :edit }
     end

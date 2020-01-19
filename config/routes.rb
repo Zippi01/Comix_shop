@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'orders/show'
   get 'orders/new'
   get 'carts/show'
+  get 'product/about'
+  get 'product/delivery'
 
   scope'(:locale)', locale:/#{I18n.available_locales.join("|")}/ do
 

@@ -25,11 +25,13 @@ class ProductController < ApplicationController
     render action: :index
   end
 
-  def show
-  end
+  def show;end
+
+  def about;end
+
+  def delivery;end
 
   def set_product
     @product = Product.find(params[:id])
   end
-
 end

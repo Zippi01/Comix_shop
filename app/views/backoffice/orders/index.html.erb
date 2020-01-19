@@ -4,20 +4,23 @@
   <div class="p-3" >
     <% @orders.each do |order| %>
       <hr>
-        <p><strong><%= t("order.index.name") %>:</strong> <%= order.name %></p>
-        <p><strong>Email:</strong> <%= order.email %></p>
-        <p><strong><%= t("order.index.cart") %>:</strong> </p>
-        <ul>
-          <% order.cart_items.each do |item| %>
-            <li><%= item.quantity %> x <%= item.product.title %></li>
-          <% end %>
-        </ul>
-        <div class="d-flex flex-row-reverse">
-          <span class="border border-dark rounded">
-            <%= link_to "#{t('product.index.show')}", admin_order_path(order), class:"btn btn-light"%>
-            <%= link_to "#{t('product.index.edit')}", edit_admin_order_path(order), class:"btn btn-light"%>
-          </span>
-        </div>
+      <p><strong><%= t("order.index.name") %>:</strong> <%= order.name %></p>
+
+      <p><strong>Email:</strong> <%= order.email %></p>
+
+      <p><strong><%= t("order.index.cart") %>:</strong> </p>
+      
+      <ul>
+        <% order.cart_items.each do |item| %>
+          <li><%= item.quantity %> x <%= item.product.title %></li>
+        <% end %>
+      </ul>
+      <div class="d-flex flex-row-reverse">
+        <span class="border border-dark rounded">
+          <%= link_to "#{t('product.index.show')}", admin_order_path(order), class:"btn btn-light"%>
+          <%= link_to "#{t('product.index.edit')}", edit_admin_order_path(order), class:"btn btn-light"%>
+        </span>
+      </div>
       <hr>
     <% end %>
   </div>

@@ -4,13 +4,12 @@
     <%= Category.find(@product.category_id).title %>
   </div>
   <hr>
-  <p>
-    <%= @product.description %>
-  </p>
+  <p><%= @product.description %></p>
+
   <% @product.images.each do |images| %>
      <%= image_tag images.url(:large) %>
   <% end %>
-  <br>
-  <br>
-    <%= link_to "#{t('product.show.back')}", admin_products_path, class:"btn btn-outline-primary"%>
+  
+  <br><br>
+  <%= link_to "#{t('product.show.back')}", admin_products_path, class:"btn btn-outline-primary"%>
 </div>

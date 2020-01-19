@@ -13,6 +13,7 @@
   <body>
     <div class="p-4">
       <%= render 'shared/admin' %>
+      <%= render partial: 'shared/flash',  flash: flash %>
       <%= yield %>
       <%= render 'shared/footer'%>
     </div>

@@ -27,9 +27,7 @@
     <i class = "text-muted"><%= Category.find(@product.category_id).title %></i>
     <hr>
     <strong><%= t('product.index.description')%>:</strong>
-    <p>
-      <%= @product.description %>
-    </p>
+    <p><%= @product.description %></p>
   </div>
 </div>
 
@@ -48,7 +46,6 @@
     <p><i class="fas fa-plus"></i> <%= comment.plus %></p>
     <p><i class="fas fa-minus"></i> <%= comment.minus %></p>
     <br>
-
   </div>
 <% end %>
 
@@ -58,35 +55,23 @@
       <% if current_user %>
         <h4><%= t('product.show.comment')%></h4>
         <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
-
-
-
-
           <p>
             <% 5.times do |i| %>
               <%= form.radio_button(:rating, i+1) %>
             <% end %>
           </p>
-
-
-
-
-
-
-
-
           <p>
-                      <%= form.label :comment %><br>
-                      <%= form.text_area :body, class:'form-control' %>
-                    </p>
-                    <p>
-                      <%= form.label :plus %><br>
-                      <%= form.text_area :plus, class:'form-control' %>
-                    </p>
-                    <p>
-                      <%= form.label :minus %><br>
-                      <%= form.text_area :minus, class:'form-control' %>
-                    </p>
+            <%= form.label :"#{t("product.show.com")}" %><br>
+            <%= form.text_area :body, class:'form-control' %>
+          </p>
+          <p>
+            <%= form.label :"#{t("product.show.plus")}" %><br>
+            <%= form.text_area :plus, class:'form-control' %>
+          </p>
+          <p>
+            <%= form.label :"#{t("product.show.minus")}" %><br>
+            <%= form.text_area :minus, class:'form-control' %>
+          </p>
           <p>
             <%= form.submit "#{t('product.show.publish')}", class:'btn btn-success btn-sm ' %>
           </p>
