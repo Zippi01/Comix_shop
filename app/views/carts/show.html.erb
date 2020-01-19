@@ -1,19 +1,35 @@
-<h2>Cart show</h2>
-<ul>
+<h3>Корзина</h3>
+<table class="table">
   <% @cart.cart_items.each do |cart_item| %>
-    <li>Item: <%= cart_item.product.title %>/ Price: <%= number_to_currency(cart_item.product.price) %>/ Quantity: <%= cart_item.quantity %>/ Total Price: <%= number_to_currency(cart_item.total_price) %>
-    <ul>
-      <li>
-        <%= link_to "Add one", cart_item_add_path(:id => cart_item), method: :post %>
-        <%= link_to "Reduce one", cart_item_reduce_path(:id => cart_item), method: :post %>
-      </li>
-      <li>
-        <%= link_to "Remove item", cart_item_path(cart_item), method: :delete %>
-      </li>
-    </ul>
+   <tr>
+     <td><%= image_tag cart_item.product.images.first.url(:thumb) %> <%= cart_item.product.title%></td>
+      <td>
+        <%= link_to " ", cart_item_reduce_path(:id => cart_item),
+                           method: :post,
+                           class:"fas fa-minus nav-link",
+                           style:"color: #000;" %>
+        <span class="border border-dark rounded p-2">
+          <%= cart_item.quantity %>
+        </span>
+        <%= link_to " ", cart_item_add_path(:id => cart_item),
+                         method: :post,
+                         class: "fas fa-plus nav-link",
+                         style:"color: #000;" %>
+      </td>
+      <td><%= cart_item.total_price %> <i class="fas fa-hryvnia"></i></td>
+      <td>
+        <%= link_to " ", cart_item_path(cart_item),
+                           method: :delete,
+                           class: "fas fa-times nav-link",
+                           style:"color: #000;",
+                           data: {confirm: "Are you sure?"} %>
+     </td>
+   </tr>
   <% end %>
-</ul>
-<h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
+</table>
+<hr>
+<h5 align = "right">Вся сумма <%= @cart.sub_total %> <i class="fas fa-hryvnia"></i></h5>
 
-<%= link_to "Proceed to checkout", new_order_path %><br>
-<%= link_to "Empty cart", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"}%>
+<div class="" align = "right">
+  <%= link_to "Оформити замовлення", new_order_path, class:"btn btn-success" %>
+</div>

@@ -14,10 +14,13 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.add_cart_items_from_cart(@current_cart)
-    @order.save
-    Cart.destroy(session[:cart_id])
-    session[:cart_id] = nil
-    redirect_to home_path
+    if @order.save
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      redirect_to home_path
+      flash[:success] = "Ваше замовлення успішно створене"
+    end
+
   end
 
 private
