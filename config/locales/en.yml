@@ -25,6 +25,7 @@ en:
       comments: "Coments"
       publish: "Publish"
       signup: "Sign up to leave a review"
+      com: "Comment"
 
   category:
     new:
@@ -60,6 +61,7 @@ en:
       cart: "Cart"
       order: "Order"
       address: "Address"
+      status: "Status"
 
   cart:
     show:

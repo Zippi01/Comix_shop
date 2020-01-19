@@ -14,4 +14,5 @@ class Product < ApplicationRecord
   scope :max_price, -> { order("price DESC") }
   scope :sort_new, -> { order("created_at DESC") }
   scope :sort_old, -> { order("created_at ASC") }
+  
 end

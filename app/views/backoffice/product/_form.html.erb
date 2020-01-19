@@ -21,10 +21,7 @@
     <%= form.rich_text_area :description, class: "form-control"%>
   </div>
   <p></p>
-
-    <%= form.select :category_id, Category.all.pluck(:title,:id),{class: "form-control "}%>
-
-
+  <%= form.select :category_id, Category.all.pluck(:title,:id),{class: "form-control"}%>
   <p></p>
 
   <div class = "field">

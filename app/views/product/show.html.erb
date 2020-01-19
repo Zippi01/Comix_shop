@@ -39,9 +39,16 @@
 <h4 class = "container"><%= t('product.show.comments')%>:</h4>
 <% @product.comments.each do |comment| %>
   <div class="container alert alert-lite contr border border-dark  p-3" >
-    <i class="fas fa-user"></i> <%=User.find_by_id(comment.user_id).email%>: <%= comment.body %>
+    <p>
+      <i class="fas fa-user"></i> <%=User.find_by_id(comment.user_id).email%>
+      <i class=" alert-light"> <%= comment.created_at %></i>
+      <i class="fas fa-star"> </i> <%= comment.rating %>
+    </p>
+    <p><i class = "far fa-edit"></i> <%= comment.body %></p>
+    <p><i class="fas fa-plus"></i> <%= comment.plus %></p>
+    <p><i class="fas fa-minus"></i> <%= comment.minus %></p>
     <br>
-    <i class = "far fa-edit"></i> <%= comment.created_at %>
+
   </div>
 <% end %>
 
@@ -51,9 +58,35 @@
       <% if current_user %>
         <h4><%= t('product.show.comment')%></h4>
         <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
+
+
+
+
           <p>
-            <%= form.text_area :body, class:'form-control' %>
+            <% 5.times do |i| %>
+              <%= form.radio_button(:rating, i+1) %>
+            <% end %>
           </p>
+
+
+
+
+
+
+
+
+          <p>
+                      <%= form.label :comment %><br>
+                      <%= form.text_area :body, class:'form-control' %>
+                    </p>
+                    <p>
+                      <%= form.label :plus %><br>
+                      <%= form.text_area :plus, class:'form-control' %>
+                    </p>
+                    <p>
+                      <%= form.label :minus %><br>
+                      <%= form.text_area :minus, class:'form-control' %>
+                    </p>
           <p>
             <%= form.submit "#{t('product.show.publish')}", class:'btn btn-success btn-sm ' %>
           </p>

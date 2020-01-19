@@ -1,0 +1,16 @@
+<div class="container w-25">
+  <%= form_with(model: [ :admin, @order ], local: true) do |form| %>
+
+    <div class="field">
+      <%= form.label :"#{t('order.index.status')}" %>
+      <%= form.text_field :status, class:"form-control" %>
+    </div>
+  <br>
+    <div class="field">
+      <%= form.label :"#{t('product.show.com')}" %>
+      <%= form.text_area :comment, class:"form-control" %>
+    </div>
+    <br>
+    <%= form.submit :"#{t('category.new.done')}", class: "btn btn-success btn-sm btn-block"  %>
+  <% end %>
+</div>

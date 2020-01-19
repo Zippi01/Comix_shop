@@ -25,6 +25,7 @@ uk:
       comments: "Коментарі"
       publish: "Опублікувати"
       signup: "Зареєструйтесь, щоб залишити відгук"
+      com: "Коментар"
 
   category:
     new:
@@ -60,6 +61,7 @@ uk:
       cart: "Корзина"
       order: "Замовлення"
       address: "Адреса"
+      status: "Статус"
 
   cart:
     show:

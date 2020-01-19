@@ -1,0 +1,19 @@
+<div class="container">
+
+  <h4><%= @order.email %></h4>
+  <hr style="background-color: #000;" >
+  <h5 class = "d-flex flex-row-reverse"><%= @order.status %></h5>
+
+  <p class="mt-4"><%= t('product.show.com')%>: <%= @order.name %></p>
+  <p>
+    <%= @order.comment %>
+  </p>
+
+  <div class = "container">
+    <% @order.cart_items.each do |item| %>
+      <li><%= item.quantity %> x <%= item.product.title %></li>
+    <% end %>
+  </div>
+  <br>
+  <%= link_to "#{t('product.show.back')}", admin_orders_path, class:"btn btn-light border border-dark"%>
+</div>
