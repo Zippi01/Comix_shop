@@ -1,6 +1,9 @@
 class Product < ApplicationRecord
   mount_uploaders :images, ImageUploader
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   has_many :category_product
   has_many :categories, through: :category_product
   has_many :cart_items, dependent: :destroy
@@ -14,5 +17,5 @@ class Product < ApplicationRecord
   scope :max_price, -> { order("price DESC") }
   scope :sort_new, -> { order("created_at DESC") }
   scope :sort_old, -> { order("created_at ASC") }
-  
+
 end

@@ -32,6 +32,6 @@ class ProductController < ApplicationController
   def delivery;end
 
   def set_product
-    @product = Product.find(params[:id])
+    @product = Product.friendly.find(params[:id])
   end
 end

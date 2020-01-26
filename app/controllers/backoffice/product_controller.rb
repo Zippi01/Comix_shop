@@ -40,7 +40,7 @@ class Backoffice::ProductController < BackOfficeController
  private
 
  def find_product
-   @product = Product.find(params[:id])
+   @product = Product.friendly.find(params[:id])
  end
 
  def product_params

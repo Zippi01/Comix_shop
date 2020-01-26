@@ -17,6 +17,7 @@ gem "mini_magick"
 gem 'image_processing'
 gem 'sorcery'
 gem 'i18n'
+gem 'friendly_id'
 
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'

@@ -1,12 +1,12 @@
 <div class="d-flex bd-highlight">
 
-  <div class="p-3 flex-fill bd-highlight">
+  <div class=" flex-fill bd-highlight">
     <% @product.images.each do |images| %>
     <%= image_tag images.url(:small), class:"p-1 bd-highlight" %>
     <% end %>
   </div>
 
-  <div class="p-2 flex-fill bd-highlight">
+  <div class="flex-fill bd-highlight ">
     <% if @product.images? %>
       <%= image_tag @product.images.first.url(:large)%>
     <% end %>
