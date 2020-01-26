@@ -12,6 +12,21 @@
   background-color: #000;
 }
 
+.color2{
+  color: black;
+}
+.color2:hover{
+  color: red;
+}
+
 .padding{
   padding: 30px 40px;
+}
+
+.title {
+    color: black;
+}
+.title:hover {
+  color: red;
+  text-decoration: none;
 }

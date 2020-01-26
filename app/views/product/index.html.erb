@@ -1,9 +1,9 @@
 <div class="d-flex flex-row-reverse">
   <span class="border border-dark rounded">
-    <%= link_to "#{t('product.index.min')}", min_price_product_index_path, class:"btn btn-light btn-sm" %>
-    <%= link_to "#{t('product.index.max')}", max_price_product_index_path, class:"btn btn-light btn-sm" %>
-    <%= link_to "#{t('product.index.new')}", sort_new_product_index_path, class:"btn btn-light btn-sm" %>
-    <%= link_to "#{t('product.index.old')}", sort_old_product_index_path, class:"btn btn-light btn-sm" %>
+    <%= link_to "#{t('product.index.min')}", min_price_product_index_path, class:"btn btn-link btn-sm title" %>
+    <%= link_to "#{t('product.index.max')}", max_price_product_index_path, class:"btn btn-link btn-sm title" %>
+    <%= link_to "#{t('product.index.new')}", sort_new_product_index_path, class:"btn btn-link btn-sm title" %>
+    <%= link_to "#{t('product.index.old')}", sort_old_product_index_path, class:"btn btn-link btn-sm title" %>
   </span>
 </div>
 <br>
@@ -16,8 +16,21 @@
         <% end %>
       </div>
 
-      <div><%= product.title %></div>
-      <br>
+      <div><%= link_to product.title, product, class:"title" %></div>
+
+      <% if product.comments.present? %>
+
+        <% (eval(sprintf("%8.1f",product.comments.sum(:rating)/product.comments.count)).to_i).times do |i| %>
+          <i class="fas fa-star yellow"></i>
+        <% end %>
+
+        <% ((5-eval(sprintf("%8.1f",product.comments.sum(:rating)/product.comments.count))).to_i).times do |i| %>
+          <i class="far fa-star yellow"></i>
+        <% end %>
+
+        <%= eval(sprintf("%8.1f",product.comments.sum(:rating).to_d/product.comments.count.to_d)) %>
+      <% end %>
+      <br><br>
       <div ><%= product.price %> <i class="fas fa-hryvnia"></i></div>
       <div>
         <%= button_to "#{t('product.index.buy')}", cart_items_path(:product_id => product.id), class:"btn btn-success btn-lg btn-block btn-sm" %>

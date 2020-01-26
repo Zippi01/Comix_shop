@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       flash[:success] = "#{t("flash.controller.message1")}"
       redirect_to product_index_path
     else
-      flash.now[:warning] = "#{t("flash.controller.message2")}"
+      flash.now[:error] = "#{t("flash.controller.message2")}"
       render 'new'
     end
   end

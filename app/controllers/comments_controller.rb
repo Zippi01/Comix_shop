@@ -10,11 +10,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Product.find(params[:product_id])
+    @comment = Product.friendly.find(params[:product_id])
     @comment = @product.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to product_path(@product)
+    else
+      redirect_to product_path(@product)
+      flash[:error] = "You must rate product"
     end
   end
 
@@ -25,6 +28,6 @@ class CommentsController < ApplicationController
   end
 
   def find_product
-    @product = Product.find(params[:product_id])
+    @product = Product.friendly.find(params[:product_id])
   end
 end

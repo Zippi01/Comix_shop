@@ -55,16 +55,16 @@
     <br>
   </div>
 <% end %>
-
 <div class="container new_comment_form">
   <div class="coments" id="form_new">
     <div id="form_comment">
       <% if current_user %>
         <h4><%= t('product.show.comment')%></h4>
         <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
+
           <p>
             <% 5.times do |i| %>
-              <%= form.radio_button(:rating, i+1) %>
+              <%= form.radio_button(:rating, i+1)%>
             <% end %>
           </p>
           <p>

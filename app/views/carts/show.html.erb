@@ -6,27 +6,30 @@
       <td>
         <%= link_to " ", cart_item_reduce_path(:id => cart_item),
                            method: :post,
-                           class:"fas fa-minus nav-link color1"%>
+                           class:"fas fa-minus nav-link color2"%>
         <span class="border border-dark rounded p-2">
           <%= cart_item.quantity %>
         </span>
         <%= link_to " ", cart_item_add_path(:id => cart_item),
                          method: :post,
-                         class: "fas fa-plus nav-link color1"%>
+                         class: "fas fa-plus nav-link color2"%>
       </td>
       <td><%= cart_item.total_price %> <i class="fas fa-hryvnia"></i></td>
       <td>
         <%= link_to " ", cart_item_path(cart_item),
                            method: :delete,
-                           class: "fas fa-times nav-link color1",
+                           class: "fas fa-times nav-link color2",
                            data: {confirm: "Are you sure?"} %>
      </td>
    </tr>
   <% end %>
 </table>
 <hr>
-<h5 align = "right"><%= t("cart.show.sum") %>: <%= @cart.sub_total %> <i class="fas fa-hryvnia"></i></h5>
-
-<div class="" align = "right">
-  <%= link_to "#{ t("cart.show.order")}", new_order_path, class:"btn btn-success" %>
-</div>
+<% if @cart.cart_items.present? %>
+  <h5 align = "right"><%= t("cart.show.sum") %>: <%= @cart.sub_total %> <i class="fas fa-hryvnia"></i></h5>
+  <div class="" align = "right">
+    <%= link_to "#{ t("cart.show.order")}", new_order_path, class:"btn btn-success" %>
+  </div>
+<% else %>
+  <p><%= t("cart.show.message")%>.</p>
+<% end %>
