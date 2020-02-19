@@ -15,7 +15,6 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.add_cart_items_from_cart(@current_cart)
     if @order.save
-      OrderMailer.with(order: @order).welcome_email.deliver!
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       redirect_to home_path

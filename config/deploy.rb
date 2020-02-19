@@ -18,6 +18,14 @@ set :config_example_suffix, '.example'
 set :config_files, %w{config/database.yml config/secrets.yml}
 set :puma_conf, "#{shared_path}/config/puma.rb"
 
+task :initial do
+  system "cap deploy:setup"
+  system "cap deploy"
+  system "cap deploy:db:drop"
+  system "cap deploy:db:create"
+  system "cap deploy:db:migrate"
+end
+
 namespace :deploy do
   before 'check:linked_files', 'config:push'
   before 'check:linked_files', 'puma:jungle:setup'

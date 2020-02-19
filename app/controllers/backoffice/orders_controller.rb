@@ -13,7 +13,6 @@ class Backoffice::OrdersController < BackOfficeController
 
   def update
     if @order.update_attributes(order_params)
-      OrderMailer.with(order: @order).edit_data.deliver!
       redirect_to admin: @order
       flash[:notice] = "#{t("flash.controller.message8")}"
     else
