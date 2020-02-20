@@ -12,5 +12,6 @@ require 'capistrano/nginx'
 require 'capistrano/upload-config'
 require 'sshkit/sudo'
 require 'capistrano/rails/console'
+require 'capistrano/rails/collection'
 
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

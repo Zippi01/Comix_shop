@@ -49,9 +49,14 @@
        <% end %>
      </i>
     </p>
+
     <p><i class = "far fa-edit"></i> <%= comment.body %></p>
-    <p><i class="fas fa-plus"></i> <%= comment.plus %></p>
-    <p><i class="fas fa-minus"></i> <%= comment.minus %></p>
+    <% if comment.plus.present? %>
+      <p><i class="fas fa-plus"></i> <%= comment.plus %></p>
+    <% end %>
+    <% if comment.minus.present? %>
+      <p><i class="fas fa-minus"></i> <%= comment.minus %></p>
+    <% end %>
     <br>
   </div>
 <% end %>
@@ -61,7 +66,6 @@
       <% if current_user %>
         <h4><%= t('product.show.comment')%></h4>
         <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
-
           <p>
             <% 5.times do |i| %>
               <%= form.radio_button(:rating, i+1)%>
@@ -71,6 +75,7 @@
             <%= form.label :"#{t("product.show.com")}" %><br>
             <%= form.text_area :body, class:'form-control' %>
           </p>
+
           <p>
             <%= form.label :"#{t("product.show.plus")}" %><br>
             <%= form.text_area :plus, class:'form-control' %>

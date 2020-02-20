@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
       redirect_to product_path(@product)
     else
       redirect_to product_path(@product)
-      flash[:error] = "You must rate product"
+      flash[:error] = "You must rate product and write a comment"
     end
   end
 

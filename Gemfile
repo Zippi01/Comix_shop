@@ -55,6 +55,7 @@ group :development do
   gem 'capistrano-rails-console', require: false
   gem 'capistrano-nginx', '~> 1.0'
   gem 'capistrano-upload-config', '~> 0.7.0'
+  gem 'capistrano-rails-collection'
   gem 'sshkit-sudo', '~> 0.1.0'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
