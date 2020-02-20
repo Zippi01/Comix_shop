@@ -66,11 +66,23 @@
       <% if current_user %>
         <h4><%= t('product.show.comment')%></h4>
         <%= form_with(model: [ @product, @product.comments.build ]) do |form| %>
-          <p>
-            <% 5.times do |i| %>
-              <%= form.radio_button(:rating, i+1)%>
-            <% end %>
-          </p>
+          <div id="reviewStars-input">
+            <input id="comment_rating_5" type="radio" name="comment[rating]" value="5"/>
+            <label title="gorgeous" for="comment_rating_5"></label>
+
+            <input id="comment_rating_4" type="radio" name="comment[rating]" value="4"/>
+            <label title="good" for="comment_rating_4"></label>
+
+            <input id="comment_rating_3" type="radio" name="comment[rating]" value="3"/>
+            <label title="regular" for="comment_rating_3"></label>
+
+            <input id="comment_rating_2" type="radio" name="comment[rating]" value="2"/>
+            <label title="poor" for="comment_rating_2"></label>
+
+            <input id="comment_rating_1" type="radio" name="comment[rating]" value="1"/>
+            <label title="bad" for="comment_rating_1"></label>
+          </div>
+          <br><br>
           <p>
             <%= form.label :"#{t("product.show.com")}" %><br>
             <%= form.text_area :body, class:'form-control' %>
